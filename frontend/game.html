@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gesture Control - Tic-Tac-Toe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Classy Dark Theme */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap');
+        
+        :root {
+            --bg-dark: #111827;
+            --nav-bg: #1f2937;
+            --text-light: #d1d5db;
+            --text-muted: #9ca3af;
+            --accent-primary: #38bdf8; /* Sky Blue */
+            --accent-secondary: #10b981; /* Emerald Green */
+        }
+
+        body { 
+            font-family: 'Lato', sans-serif; 
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow: hidden;
+        }
+        h1, h2, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .nav-link {
+            transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link:hover {
+            color: var(--accent-primary);
+            border-bottom-color: var(--accent-primary);
+        }
+        .nav-link.active {
+            color: var(--accent-primary);
+            font-weight: 600;
+            border-bottom-color: var(--accent-primary);
+        }
+        #cursor { position: fixed; width: 30px; height: 30px; border: 2px solid var(--accent-primary); border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%); transition: transform 0.1s ease-out, background-color 0.15s ease-in-out; z-index: 9999; }
+        #cursor.clicking { background-color: rgba(56, 189, 248, 0.5); }
+        #webcam { display: none; }
+        #preview_canvas { position: fixed; bottom: 20px; right: 20px; width: 240px; height: 180px; border-radius: 0.5rem; border: 2px solid var(--nav-bg); transform: scaleX(-1); }
+        
+        /* Game Board Specific Styles */
+        #game-board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            width: 360px;
+            height: 360px;
+            gap: 12px;
+        }
+        .cell {
+            background-color: #374151; /* Gray-700 */
+            border-radius: 0.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            border: 1px solid #4b5563; /* Gray-600 */
+        }
+        .cell:hover {
+            background-color: #4b5563; /* Gray-600 */
+        }
+        .cell.x { color: var(--accent-secondary); font-family: 'Playfair Display', serif; }
+        .cell.o { color: var(--text-light); font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body class="w-screen h-screen flex flex-col">
+
+    <!-- Horizontal Navigation Bar -->
+    <nav class="p-4 px-8 shadow-md flex justify-between items-center border-b" style="background-color: var(--nav-bg); border-color: #374151;">
+        <div class="text-2xl font-bold font-serif" style="color: var(--accent-primary);">GestureTrack AI</div>
+        <div class="flex items-center space-x-8 text-lg">
+            <a href="index.html" class="nav-link" style="color: var(--text-muted);">Home</a>
+            <a href="about.html" class="nav-link" style="color: var(--text-muted);">About</a>
+            <a href="game.html" class="nav-link active">Game</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex flex-col items-center justify-center text-center p-4">
+        <h1 class="text-4xl font-bold mb-4" style="color: var(--text-light);">Gesture-Controlled Tic-Tac-Toe</h1>
+        <div id="status" class="text-2xl font-medium h-10 mb-4" style="color: var(--text-muted);">&nbsp;</div>
+        <div id="game-board"></div>
+        <button id="restart-button" class="mt-8 font-bold py-3 px-6 rounded-lg text-lg hover:opacity-90 transition-opacity shadow-lg" style="background-color: var(--accent-primary); color: var(--bg-dark);">Restart Game</button>
+    </main>
+    
+    <!-- Elements for Gesture Control -->
+    <div id="cursor"></div>
+    <video id="webcam" autoplay playsinline></video>
+    <canvas id="preview_canvas"></canvas>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="/static/js/game.js"></script>
+</body>
+</html>
+
