@@ -1,4 +1,4 @@
-# Gesture-Based Web Interface & Tic-Tac-Toe Game
+# GestureTrack AI with a dedicated Tic-Tac-Toe Game
 
 This project creates a full-stack web application that allows users to control a web interface using hand gestures from their webcam. It features a main interactive page, an about page, and a fully playable Tic-Tac-Toe game, all controlled without a physical mouse.
 
