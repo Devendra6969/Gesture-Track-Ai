@@ -1,7 +1,8 @@
-Gesture-Based Web Interface & Tic-Tac-Toe Game
+# Gesture-Based Web Interface & Tic-Tac-Toe Game
+
 This project creates a full-stack web application that allows users to control a web interface using hand gestures from their webcam. It features a main interactive page, an about page, and a fully playable Tic-Tac-Toe game, all controlled without a physical mouse.
 
-Features
+<!-- Features -->
 Real-Time Gesture Control: Uses your webcam to track your hand movements.
 
 Custom Web Cursor: A custom cursor on the webpage follows your index finger.
@@ -14,14 +15,14 @@ Interactive Game: Play Tic-Tac-Toe using only hand gestures.
 
 Platform Independent: Works on any modern browser (Chrome, Firefox, etc.) on any OS (Windows, macOS, Linux).
 
-Architecture
+# Architecture
 This project uses a client-server architecture:
 
 Frontend (Client-Side): Built with HTML, Tailwind CSS, and vanilla JavaScript. It captures the video feed from the user's webcam and streams it to the backend. It also receives gesture commands from the backend to control the custom cursor on the page.
 
 Backend (Server-Side): A Python server using Flask and Flask-SocketIO. It receives the video stream, processes it in real-time using OpenCV and a custom Hand Tracking Module, and sends the appropriate gesture commands (move, click) back to the frontend.
 
-Project Structure
+<!-- Project Structure -->
 gesture-control-app/
 ├── backend/
 │   ├── app.py              # Main Flask server, handles routing and WebSockets
@@ -37,8 +38,9 @@ gesture-control-app/
             ├── main.js     # JS for the index page (camera, WebSockets)
             └── game.js     # JS for the game page (game logic + camera/WebSockets)
 
-Technologies Used
-Frontend:
+<!-- Technologies Used -->
+
+# Frontend:
 
 HTML5
 
@@ -60,7 +62,7 @@ OpenCV-Python
 
 Eventlet
 
-Setup and Installation
+# Setup and Installation
 Prerequisites
 Python 3.7+
 
