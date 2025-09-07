@@ -21,7 +21,7 @@ Smoothened cursor movement for better user experience
 
 <!-- Clone the repository -->
 
-git clone [https://github.com/yourusername/gesture-control.git](https://github.com/Devendra6969/DocShield.git)
+git clone https://github.com/Devendra6969/Gesture-Track-Ai
 cd gesture-control
 Install dependencies
 pip install -r requirements.txt
