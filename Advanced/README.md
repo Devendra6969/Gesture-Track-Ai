@@ -21,10 +21,10 @@ Smoothened cursor movement for better user experience
 
 <!-- Clone the repository -->
 
-git clone https://github.com/Devendra6969/Gesture-Track-Ai
-cd gesture-control
-Install dependencies
-pip install -r requirements.txt
+1. git clone https://github.com/Devendra6969/Gesture-Track-Ai
+2. cd gesture-control
+3. Install dependencies
+4. pip install -r requirements.txt
 
 
 🚀 Usage
